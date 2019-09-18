@@ -34,4 +34,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>resources</name>
+			<type>2</type>
+			<location>C:/Users/Atul/git/Code-Contest/Branch-Location-Maintanence/build/classes/main/resources</location>
+		</link>
+	</linkedResources>
 </projectDescription>

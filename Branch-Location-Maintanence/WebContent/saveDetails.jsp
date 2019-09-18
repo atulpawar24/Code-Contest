@@ -31,7 +31,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2">Branch ID:</label>
 				<div class="col-sm-10">
-					<input type="text" name="branchID" required>
+					<input type="number" name="branchID" required>
 				</div>
 			</div>
 			<div class="form-group">
@@ -49,7 +49,8 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2">Branch Phone Number:</label>
 				<div class="col-sm-10">
-					<input type="text" name="branchPhNum" required>
+					<input type="tel" name="branchPhNum" pattern="[789][0-9]{9}" required>
+					<small>Format: Valid 10 digit number starting with 7, 8 or 9</small>
 				</div>
 			</div>
 			<div class="form-group">

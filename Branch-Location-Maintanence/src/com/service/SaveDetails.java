@@ -2,12 +2,17 @@ package com.service;
 
 import java.io.IOException;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.service.dao.BRANCHES;
 
 @WebServlet("/SaveDetails")
 public class SaveDetails extends HttpServlet {
@@ -20,10 +25,25 @@ public class SaveDetails extends HttpServlet {
 			response.sendRedirect("login.jsp");
 		}
 
-		String BranchId = request.getParameter("branchID");
+		int BranchId = Integer.parseInt(request.getParameter("branchID"));
 		String BranchName = request.getParameter("branchName");
 		String BranchAddr = request.getParameter("branchAddr");
-		String BranchNum = request.getParameter("branchPhNum");
+		int BranchNum = Integer.parseInt(request.getParameter("branchPhNum"));
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("project");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		BRANCHES b = new BRANCHES();
+		b.setBRANCHID(BranchId);
+		b.setBRANCHNAME(BranchName);
+		b.setBRANCHADDR(BranchAddr);
+		b.setBRANCHNUM(BranchNum);
+
+		em.persist(b);
+		em.getTransaction().commit();
+		emf.close();
+
+		response.sendRedirect("DetailsSaved.jsp");
 
 	}
 

@@ -31,7 +31,7 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2">Branch ID:</label>
 				<div class="col-sm-10">
-					<input type="text" name="branchID" required>
+					<input type="number" name="branchID" required>
 				</div>
 			</div>
 			<div class="form-group">
