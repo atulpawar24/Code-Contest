@@ -33,8 +33,8 @@ public class SearchDetails extends HttpServlet {
 		String BranchCity;
 		int BranchZip;
 		long BranchNum;
-		String searchCriteria = request.getParameter("search");
-		System.out.println(searchCriteria);
+		// String searchCriteria = request.getParameter("search");
+		// System.out.println(searchCriteria);
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("project");
 		EntityManager em = emf.createEntityManager();

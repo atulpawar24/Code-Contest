@@ -40,7 +40,7 @@
 					<input class="form-control" type="text" name="branchName" required>
 				</div>
 			</div>
-			<div class="form-group">
+	<!-- 		<div class="form-group">
 				<label class="control-label col-sm-2">Search By Id</label>
 				<div class="col-sm-10">
 					<input type="radio" name="search" value="byId" checked>
@@ -51,7 +51,7 @@
 				<div class="col-sm-10">
 					<input type="radio" name="search" value="">
 				</div>
-			</div>
+			</div> -->
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" class="btn btn-primary">Search</button>
