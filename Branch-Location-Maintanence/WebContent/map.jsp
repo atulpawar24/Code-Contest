@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,17 +9,28 @@
 <title>Location on Map</title>
 <script
     src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
+
 var map;
+var lt =${lat};
+var lon =${lon};
 function initialize() {
   var mapProp = {
     zoom: 8,
-    center: new google.maps.LatLng(18.5245649,73.7228812)
+    center: new google.maps.LatLng(lt,lon)
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapProp);
+  var MPosition = {lat: lt,lng: lon};
+	var marker = new google.maps.Marker({
+			position: MPosition,
+			map: map,
+			title: 'Branch'
+			});
 }
-
 google.maps.event.addDomListener(window, 'load', initialize); 
 </script>
 </head>
@@ -29,6 +40,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		if (session.getAttribute("name") == null) {
 			response.sendRedirect("login.jsp");
 		}
+		
+		String lat=request.getAttribute("lat").toString();
+		String lon=request.getAttribute("lon").toString();
 	%>
 	<div align="right">
 		<form method="post">
@@ -42,7 +56,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	</div>
 	<div class="container">
 	   <h2>Branch Location</h2>
-	   <div class="form-group" id="map-canvas" style="height:500px; width:700px"></div>
+	   <div  class="form-group" id="map-canvas" style="height:500px; width:700px"></div>
 	</div>
 	
 </body>

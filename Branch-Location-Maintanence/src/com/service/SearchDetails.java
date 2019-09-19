@@ -28,8 +28,13 @@ public class SearchDetails extends HttpServlet {
 
 		int BranchId = Integer.parseInt(request.getParameter("branchID"));
 		String BranchName = request.getParameter("branchName");
-		String BranchAddr;
-		int BranchNum;
+		String BranchCon;
+		String BranchState;
+		String BranchCity;
+		int BranchZip;
+		long BranchNum;
+		String searchCriteria = request.getParameter("search");
+		System.out.println(searchCriteria);
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("project");
 		EntityManager em = emf.createEntityManager();
@@ -37,11 +42,17 @@ public class SearchDetails extends HttpServlet {
 		BRANCHES b = em.find(BRANCHES.class, BranchId);
 
 		if (b.getBRANCHID() == BranchId && b.getBRANCHNAME().equals(BranchName)) {
-			BranchAddr = b.getBRANCHADDR();
+			BranchCon = b.getBRANCHCON();
+			BranchState = b.getBRANCHSTATE();
+			BranchCity = b.getBRANCHCITY();
+			BranchZip = b.getBRANCHZIP();
 			BranchNum = b.getBRANCHNUM();
 			request.setAttribute("BranchId", BranchId);
 			request.setAttribute("BranchName", BranchName);
-			request.setAttribute("BranchAddr", BranchAddr);
+			request.setAttribute("BranchCon", BranchCon);
+			request.setAttribute("BranchState", BranchState);
+			request.setAttribute("BranchCity", BranchCity);
+			request.setAttribute("BranchZip", BranchZip);
 			request.setAttribute("BranchNum", BranchNum);
 			RequestDispatcher rd = request.getRequestDispatcher("/DetailsSearched.jsp");
 			rd.forward(request, response);

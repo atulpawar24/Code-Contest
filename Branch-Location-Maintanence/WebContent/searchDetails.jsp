@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%
-	    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 		if (session.getAttribute("name") == null) {
 			response.sendRedirect("login.jsp");
 		}
@@ -31,13 +31,25 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2">Branch ID:</label>
 				<div class="col-sm-10">
-					<input type="number" name="branchID" required>
+					<input class="form-control" type="number" name="branchID" required>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="control-label col-sm-2">Branch Name:</label>
 				<div class="col-sm-10">
-					<input type="text" name="branchName" required>
+					<input class="form-control" type="text" name="branchName" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Search By Id</label>
+				<div class="col-sm-10">
+					<input type="radio" name="search" value="byId" checked>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-2">Search By Name</label>
+				<div class="col-sm-10">
+					<input type="radio" name="search" value="">
 				</div>
 			</div>
 			<div class="form-group">

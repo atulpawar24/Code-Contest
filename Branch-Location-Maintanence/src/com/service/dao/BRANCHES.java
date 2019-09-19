@@ -5,11 +5,15 @@ import javax.persistence.Id;
 
 @Entity
 public class BRANCHES {
+
 	@Id
 	private int BRANCHID;
 	private String BRANCHNAME;
-	private String BRANCHADDR;
-	private int BRANCHNUM;
+	private String BRANCHCON;
+	private String BRANCHSTATE;
+	private String BRANCHCITY;
+	private int BRANCHZIP;
+	private long BRANCHNUM;
 
 	public int getBRANCHID() {
 		return BRANCHID;
@@ -17,12 +21,6 @@ public class BRANCHES {
 
 	public void setBRANCHID(int bRANCHID) {
 		BRANCHID = bRANCHID;
-	}
-
-	@Override
-	public String toString() {
-		return "BRANCHES [BRANCHID=" + BRANCHID + ", BRANCHNAME=" + BRANCHNAME + ", BRANCHADDR=" + BRANCHADDR
-				+ ", BRANCHNUM=" + BRANCHNUM + "]";
 	}
 
 	public String getBRANCHNAME() {
@@ -33,19 +31,51 @@ public class BRANCHES {
 		BRANCHNAME = bRANCHNAME;
 	}
 
-	public String getBRANCHADDR() {
-		return BRANCHADDR;
+	public String getBRANCHCON() {
+		return BRANCHCON;
 	}
 
-	public void setBRANCHADDR(String bRANCHADDR) {
-		BRANCHADDR = bRANCHADDR;
+	public void setBRANCHCON(String bRANCHCON) {
+		BRANCHCON = bRANCHCON;
 	}
 
-	public int getBRANCHNUM() {
+	public String getBRANCHSTATE() {
+		return BRANCHSTATE;
+	}
+
+	public void setBRANCHSTATE(String bRANCHSTATE) {
+		BRANCHSTATE = bRANCHSTATE;
+	}
+
+	public String getBRANCHCITY() {
+		return BRANCHCITY;
+	}
+
+	public void setBRANCHCITY(String bRANCHCITY) {
+		BRANCHCITY = bRANCHCITY;
+	}
+
+	public int getBRANCHZIP() {
+		return BRANCHZIP;
+	}
+
+	public void setBRANCHZIP(int bRANCHZIP) {
+		BRANCHZIP = bRANCHZIP;
+	}
+
+	public long getBRANCHNUM() {
 		return BRANCHNUM;
 	}
 
-	public void setBRANCHNUM(int bRANCHNUM) {
+	public void setBRANCHNUM(long bRANCHNUM) {
 		BRANCHNUM = bRANCHNUM;
 	}
+
+	@Override
+	public String toString() {
+		return "BRANCHES [BRANCHID=" + BRANCHID + ", BRANCHNAME=" + BRANCHNAME + ", BRANCHCON=" + BRANCHCON
+				+ ", BRANCHSTATE=" + BRANCHSTATE + ", BRANCHCITY=" + BRANCHCITY + ", BRANCHZIP=" + BRANCHZIP
+				+ ", BRANCHNUM=" + BRANCHNUM + "]";
+	}
+
 }

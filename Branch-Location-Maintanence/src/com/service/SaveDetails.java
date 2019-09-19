@@ -27,8 +27,11 @@ public class SaveDetails extends HttpServlet {
 
 		int BranchId = Integer.parseInt(request.getParameter("branchID"));
 		String BranchName = request.getParameter("branchName");
-		String BranchAddr = request.getParameter("branchAddr");
-		int BranchNum = Integer.parseInt(request.getParameter("branchPhNum"));
+		String BranchCon = request.getParameter("countySel");
+		String BranchState = request.getParameter("stateSel");
+		String BranchCity = request.getParameter("citySel");
+		int BranchZip = Integer.parseInt(request.getParameter("zipSel"));
+		long BranchNum = Long.parseLong(request.getParameter("branchPhNum"));
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("project");
 		EntityManager em = emf.createEntityManager();
@@ -36,7 +39,10 @@ public class SaveDetails extends HttpServlet {
 		BRANCHES b = new BRANCHES();
 		b.setBRANCHID(BranchId);
 		b.setBRANCHNAME(BranchName);
-		b.setBRANCHADDR(BranchAddr);
+		b.setBRANCHCON(BranchCon);
+		b.setBRANCHSTATE(BranchState);
+		b.setBRANCHCITY(BranchCity);
+		b.setBRANCHZIP(BranchZip);
 		b.setBRANCHNUM(BranchNum);
 
 		em.persist(b);
